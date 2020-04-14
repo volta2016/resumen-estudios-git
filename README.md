@@ -1,2 +1,2 @@
-# resumen_estudios
+# resumen_estudios github comandos claves
 Resumen clases 
