@@ -1,0 +1,282 @@
+CONFIGURACIÓN CUANDO COMIENZO UN PROYECTO CON GIT
+
+- Siempre al empezar un proyecto primero inspecciono los elementos
+  con el comando:
+
+ls
+
+Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar
+
+git —version
+git config —global user.name “Volta”
+Git config —global user.email “giovoltadesign@gmail.com
+
+$ git --version
+$ git config --global user.name "TU NOMBRE"
+$ git config --global user.email "TU CORREO DE GITHUB"
+$ git config --global --list
+$ git help [comando a buscar]
+
+\*Siempre al empezar un proyecto primero primero inspecciono los elementos :
+ls
+Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar
+Una vez ubicado en el Desktop inspecciono la carpeta del proyecto
+cd proyecto web
+
+\*clear es para ir borrando todo
+git add -A
+Primer commit git commit -m “archivos de proyecto instalados
+Git log : me muestra Historial del proyecto con los datos del usuario
+
+\*Una vez comienzo a editar con el editor de texto puede ser “sublime o atom”
+Aplico git status para ver que cambio hay, en que archivo y puedo comentar directamente
+git commit–m “cambios de footer” 
+puedo preparar un archivo con git add “nombre del archivo
+git commit “nombre del archivo” —amend
+
+1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
+2. git status ->para ver que esta en el repo y que no
+3. git add [archivos] -> stagin area, preparar lo que sera el commit 
+4. git add -A ->alista todos los archivos para el commit (agrega todos los archivos de golpe) 5.  git commit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo
+
+Git y git hub
+cd para llamar la carpeta
+Ls para ver la lista
+Git ini para comenzar
+
+- git help te muestra como funciona los parapeto es un parámetro
+- git help commit
+
+git config --list para revisar listado
+Git help add commit
+1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
+2. git status ->para ver que esta en el repo y que no
+3. git add [archivos] -> stagin area, preparar lo que sera el commit 
+4. git add -A ->alista todos los archivos para el commit 5.  gitcommit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo
+
+\*git status te muestra en rojo los cambios del código en el html
+
+git status te muestra que archivos puedes ir guardando
+git add -A alista todo los archivos
+git log
+git superlog
+
+RAMAS
+git commit -am “commit nuevo” rama experimental
+
+BORRAR
+Git reset borra todo el proyecto
+git reset —hard “mas el ID del commit de ahi hacia arriba borra todo, si borro de arriba hacia bajo vuelve a los commit anteriores, si borro de abajo hacia arriba borra todo ejemplo ultimo de ID “
+git add -A guardar
+git commit -m “123”
+git log
+
+git reset mix recopila todos recopilo todos los commit y el e iguala el repositorio con el standing area
+Y en ves de tener 3 commit creado recopila todo en 1
+
+git reset soft hace cambio solo en repositorio pero iguala el standing con el working siempre se trabaja con el commit base git rest commit directamente el mix hay preparar los archivos para los commit en soft están todos los archivos preparados para el comino
+
+git checkout viaja en ele tiempo pegas el commit ID
+
+reclutamiento@desis.cl
+git init crear nuestro primer repositorio
+
+git add subir uno a uno al work staging area git add - nombre del archivo
+
+CUANDO REALIZO CAMBIOS en el html
+Git status
+
+Giovannis-MBP:platzigit-master volta$ git status
+On branch master
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Giovannis-MBP:platzigit-master volta$
+
+Al cambio del index.html realizado o pagina x .html debemos agregar los siguientes después de darle git status
+para integración básica
+git add index.html
+git commit -m “cambios Nombre y descripción”
+
+“ git log ” te permite ver el nombre del la carpeta del proyecto el autor la fecha de commit y más
+Variantes de comando de git log
+git log — online te muestra el “sin detalles el commit id con el titulo”
+git log — decorate “te muestra en que punto estas con head”
+Git log —online —graph
+git log —stat “numero de linea que se editaron, cuales fueron los cambios a nivel de archivo”
+git log -p “muestra los cambios y cuales fueron los cambios a nivel de código”
+Git shortlog “puedes ver en que esta trabajando cada desarrollador muestra los commit”
+git log —prety=format
+
+log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+CLASE GIT HUB 2
+
+cd Desktop , luego ls , cd platzigit-master, ls vemos los archivos .
+
+git config —global alias.superlog
+git status
+git add -A , agregar todos los archivos
+git commit -m “0” agrega todos los archivos
+
+git log para ver los commit
+git super log
+git checkout -b experimental - “ para crear ramas y entrar en ellas “
+
+PARA AGREGAR COMMIT
+Iteración básica es para agregar archivos
+archivo 1.txt
+git add -A
+git commit -m “1”
+
+archivo 2.txt
+git add -A
+git commit -m “2”
+
+archivo 3.txt
+git add -A
+git commit -m “3”
+
+RAMAS
+para crear una rama
+1-.git checkout -b “experimental”
+
+git branch “nombre de la rama”
+
+git log para ver las commit ramas y features del master
+
+HEAD ES LA ubicación donde uno esta programando.
+
+Git merge
+
+Para fusionar ramas
+git merge experimental
+
+Va a fusionar la rama experimental pero quiero que le coloques un nombre
+PULSAR LA TECLA O , UNA VEZ COLOCAS EL NOMBRE ESC :X QUE ES CERRAR Y GUARDAR
+
+PARA VER COMMIT
+
+Luego
+git superlog
+git log
+para restificación de commit de estar seguro y que sea el ultimo
+Git commit -am “descripción cambiada” —amend
+
+“Como borrar las ramas”
+
+git branch -d experimental
+
+> Merge crea un nuevo commit con los cambios de las ramas que estás fusionando.
+
+> Rebase se "trae" los cambios de la otra rama (Master) y los fusiona con los suyos.
+
+git branch “para ver las ramas”
+
+FUSIÓN
+
+solucionar el conflicto , con git status vemos el archivo en rojo luego esta en rojo apene hay que subirlo a
+Luego git add -A
+Git status
+Git commit -m “Fusión realizada”
+
+REINICIAR PROYECT
+
+Entrar a las carpetas ocultas ls -la
+La git guarda el proyecto en una carpeta y el registro lo tiene una carpeta llamada .git
+Con el siguiente comando puedes eliminarla: rm - rf
+ls -la para ver todo el repositorio
+
+git checkout master es para volver atrás de un cambio en alguna rama
+
+git merge “para la fusión” decidir con que titulo queda o modificación
+Despues comentas interacción básica fusión ejecutada
+
+se puede hacer un reset --hard
+al inicio del proyecto o commit inicial sin tener el id del commit de esta forma: 
+git fetch origin
+git reset --hard origin/master
+
+REBASE
+
+En las fusiones se crea un solo commit
+En rebase pasa esto : a-b se colocan antes del commit de master
+Por ejemplo si vuelvo mi ejemplo a git checkout master vuelven deprecar los commit de la rama del rebase a - b vuelves atrás “por que master esta en el commit con nombre cuarto” como subirlo:
+git merge rama rebase
+
+Ramarebase va acompañado de merge se va atacando de varias formas , cuando trabajas con rebase tienen que hacer “merge” git merge rama rebase
+Crear ramas git checkout -b “nombre de la rama”
+
+RAMA POR DEFECTO master
+
+Css https://www.nigbox.com/cursos/css-basico-desde-cero/#/
+
+PARA CLONAR cd ubico Desktop
+git clone y el link en HTTPS. https://github.com/github/gemoji.git
+
+LLAVE SSH RSA COMO ALGORITMO
+
+$ ssh-keygen -t rsa -b 4096 -C "[email de GitHub]"
+
+    			Dar enter. Aceptar la localización por defecto.
+
+    			Contraseña.
+
+    			$ cd  ~/.ssh
+
+    			$ cat id_rsa.pub
+
+    			Copiamos la llave y la pegamos en Settings > SSH, dentro de GitHub.
+
+
+Resumen
+
+ssh-keygen -t rsa -b 4096 -C "poner aquí correo electrónico"
+
+cat id_rsa.pub
+
+Pegas el código y vuelvo al escritorio
+
+WORK GITHUB
+Creo la carpeta mkdri nombre carpeta
+Entro a la carpeta con cd
+git init
+Agrego el primer archivo: touch 1.txt
+git remote add origin “nombre del repositorio remoto
+
+git push origin master
+Para retomar proyecto \***_desarrollamos_**
+git fetch origin “refresh actualization del remoto”
+git merge origin/master
+git push origin master
+
+Cued realizas fetch no cae en la rama master “ la local “ si no cae en origin master rama escondida
+Luego de placa una fusión : git merge origin/master
+
+PROCESO DE REPOSITORIOS “FORKED”
+Pasos en orden
+
+Crear ó entrar a la carpeta del proyecto cd
+git init
+git remote add origin [HTTPS ó SSH del proyecto forked]
+git remote add upstream [HTTPS ó SSH del proyecto principal]
+git fetch upstream
+git merge origin/upstream “como conectamos la rama del repositorio original”
+git fetch origin
+git merge origin/master
+Hacer cambios en local
+git fetch upstream. “Ramas escondidas “
+git merge origin/upstream
+git push origin master
+
+http://git.miguelnieva.com/#/273
+
+TESTING
+Travis-ci.org
+https://trello.com/b/EceUgtCL/ghost-roadmap
+
+Issues y Milestones de Github

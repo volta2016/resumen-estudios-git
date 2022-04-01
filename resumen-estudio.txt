@@ -1,8 +1,18 @@
 CONFIGURACIÓN CUANDO COMIENZO UN PROYECTO CON GIT
 
-*Siempre al empezar un proyecto primero primero inspecciono los elementos :
+* Siempre al empezar un proyecto primero inspeccionó los elementos
+con el comando:
+
 ls
-Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar 
+
+Luego en la consola escribes: 
+cd Desktop 
+
+Con este comando puedes visualizar todas las carpetas ubicadas en tu escritorio de tu computadora. 
+Luego me ubico en la carpeta del proyecto en la cual voy a trabajar
+
+
+
 git —version 
 git config —global user.name “Volta”
 Git config —global user.email “giovoltadesign@gmail.com
