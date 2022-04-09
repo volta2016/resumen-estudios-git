@@ -88,9 +88,9 @@ puedo renombrar un último commit
 ## Resumen
 
 1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial de nuestros cambios
-2. git status -> sirve para ver que esta en el stage y que no
-3. git add [archivos] -> stagin area, va a prepara lo que sera el commit 
-4. git add -A -> alista todos los archivos para el commit (agrega todos los archivos de golpe) 5. git commit –m "nombre commit" -> crea el commit y queda agregado al historial del repositorio
+2. git status -> sirve para ver que está en el stage y que no
+3. git add [archivos] -> stagin area, va a preparar lo que será el commit 
+4. git add -A -> lista todos los archivos para el commit (agrega todos los archivos de golpe) 5. git commit –m "nombre commit" -> crea el commit y queda agregado al historial del repositorio
 
 6. git config --list puedo ver un listado
 
@@ -102,9 +102,9 @@ puedo renombrar un último commit
 
 nos muestra el listado de commit con su respectiva fecha y autor
 
-## Comados para borrar o retroceder en el histotial
+## Comandos para borrar o retroceder en el historial
 
-Antes de pasar a este tema vamos a pasar a unos conceptos de git que son claves para enteder como trabajamos con.
+Antes de pasar a este tema vamos a pasar a unos conceptos de git que son claves para entender cómo trabajamos con.
 
 - Directorio Git -> El directorio Git (ubicado en RUTA-DE-TU-PROYECTO/.git/) es donde Git almacena todo lo que necesita para hacer un seguimiento preciso del proyecto.
 - Directorio de trabajo (o árbol de trabajo) -> El directorio de trabajo es donde un usuario realiza cambios locales en un proyecto. El directorio de trabajo descarga los archivos del proyecto de la base de datos de objetos del directorio Git y los coloca en la máquina local del usuario.
@@ -113,74 +113,102 @@ Nota: Directorio también se conoce como repositorio o en forma abreviada repo. 
 
 - Zona de "staging" -> La zona de "staging" es un archivo (también llamado "index", "stage" o "cache") que almacena información sobre lo que irá en tu próximo commit. Un commit es cuando le dices a Git que guarde estos cambios staged. Git toma una instantánea de los archivos tal y como están y almacena permanentemente esa instantánea en el directorio Git.
 
-- Con tres secciones, hay tres estados principales, en los que puede estar un archivo en un momento dado: modificado, commited, o staged. Tú modificas un archivo cada vez que se hacen cambios en él directorio de trabajo. Luego es staged cuando lo mueves al zona de "staging". Finalmente, es committed después de un commit.
+- Con tres secciones, hay tres estados principales, en los que puede estar un archivo en un momento dado: modificado, commited, o staged. Tú modificas un archivo cada vez que se hacen cambios en el directorio de trabajo. Luego es staged cuando lo mueves al zona de "staging". Finalmente, es committed después de un commit.
 
 **git reset**
 
-te permite RESTABLECER tu estado actual a un estado específico. Esto es útil si aún no has subido tu commit a GitHub o a otro repositorio remoto.
+Te permite REESTABLECER tu estado actual a un estado específico. Puedes restablecer el estado de archivos específicos, así como el de todo una rama. Esto es útil si aún no has subido tu commit a GitHub o a otro repositorio remoto.
 
 **git reset —hard “mas el ID del commit"**
 
-restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
+Restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
 
-git reset mix recopila todos recopilo todos los commit y el e iguala el repositorio con el standing area
+**git reset mix**
+
+recopilo todos los commit y el e iguala el repositorio con el standing area
 Y en ves de tener 3 commit creado recopila todo en 1
 
-git reset soft hace cambio solo en repositorio pero iguala el standing con el working siempre se trabaja con el commit base git rest commit directamente el mix hay preparar los archivos para los commit en soft están todos los archivos preparados para el comino
+**git reset soft**
+
+hace cambió solo en repositorio pero iguala el standing con el working siempre se trabaja con el commit base git rest commit directamente el mix hay preparar los archivos para los commit en soft están todos los archivos preparados para el comino
 
 git checkout viaja en ele tiempo pegas el commit ID
 
-reclutamiento@desis.cl
-git init crear nuestro primer repositorio
+## Unstage un archivo
 
-git add subir uno a uno al work staging area git add - nombre del archivo
+Si has movido un archivo la zona de "staging" con git add, pero ya no quieres que forme parte del commit, puedes usar git reset para unstage ese archivo:
 
-CUANDO REALIZO CAMBIOS en el html
-Git status
+**git reset HEAD ARCHIVO-A-UNSTAGE**
 
-Giovannis-MBP:platzigit-master volta$ git status
-On branch master
-Changes not staged for commit:
-(use "git add <file>..." to update what will be committed)
-(use "git checkout -- <file>..." to discard changes in working directory)
+Los cambios que has hecho seguirán estando en el archivo, este comando solo remueve el archivo de tu zona de "staging".
 
-    modified:   index.html
+## Restablecer una rama a un commit anterior
 
-no changes added to commit (use "git add" and/or "git commit -a")
-Giovannis-MBP:platzigit-master volta$
+El siguiente comando restablece el HEAD de tu rama actual al COMMIT dado y actualiza el índice. Básicamente rebobina el estado de su rama, luego todos los commits que hagas en adelante se escriben sobre todo lo que vino después del punto de reinicio. Si omites el MODE, el valor predeterminado es --mixed:
 
-Al cambio del index.html realizado o pagina x .html debemos agregar los siguientes después de darle git status
-para integración básica
-git add index.html
-git commit -m “cambios Nombre y descripción”
+## git reset MODE COMMIT
 
-“ git log ” te permite ver el nombre del la carpeta del proyecto el autor la fecha de commit y más
-Variantes de comando de git log
-git log — online te muestra el “sin detalles el commit id con el titulo”
-git log — decorate “te muestra en que punto estas con head”
-Git log —online —graph
-git log —stat “numero de linea que se editaron, cuales fueron los cambios a nivel de archivo”
-git log -p “muestra los cambios y cuales fueron los cambios a nivel de código”
-Git shortlog “puedes ver en que esta trabajando cada desarrollador muestra los commit”
-git log —prety=format
+Las opciones para MODE son:
+
+--soft: no restablece el fichero índice o el árbol de trabajo, pero restablece HEAD para commit. Cambia todos los archivos a "Cambios a ser commited".  
+--mixed: restablece el índice, pero no el árbol de trabajo e informa de lo que no se ha actualizado.
+--hard: restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
+--merge: restablece el índice y actualiza los archivos en el árbol de trabajo que son diferentes entre el commit y HEAD, pero mantiene los que son diferentes entre el índice y el árbol de trabajo.
+--keep: restablece las entradas del índice, actualiza los archivos en el árbol de trabajo que son diferentes entre commit y HEAD. Sin un archivo que es diferente entre commit y HEAD tiene cambios locales, el reinicio se aborta.
+
+Nota importante sobre los Hard Resets
+Ten mucho cuidado usando la opción --hard con git reset, ya que restablece tu commit, zona de "staging" y tu directorio de trabajo. Si esta opción no se utiliza correctamente, se puede acabar perdiendo el código escrito.
+
+Git Revert
+Ambos comandos git revert y git reset, deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits. Esto puede hacer que trabajar en un repositorio con otros desarrolladores y mantener un historial consistente de commits sea muy difícil.
+
+En su lugar es mejor usar git revert, que deshace los cambios realizados por un commit anterior creando un commit completamente nuevo, todo esto sin alterar el historial de commits.
+
+Revert un commit o un grupo de commits
+El siguiente comando te permite revertir los cambios de un commit o varios commits anteriores y crear un nuevo commit.
+
+git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…
+git revert --continue
+git revert --quit
+git revert --abort
+Opciones comunes:
+-e
+--edit
+
+## git log comandos
+
+- git log -> te permite ver el nombre del la carpeta del proyecto el autor la fecha de commit y más
+  Variantes de comando de git log
+  -git log online -> te muestra el “sin detalles el commit id con el titulo”
+  -git log decorate -> te muestra en qué punto estas con head
+  -git log —online —graph -> muestro los movimiento y ramas en un gráfico
+  -git log —stat -> numero de linea que se editaron, cuales fueron los cambios a nivel de archivo
+  -git log -p -> muestra los cambios y cuáles fueron los cambios a nivel de código
+- git shortlog -> puedes ver en que está trabajando cada desarrollador muestra los commit
+  los siguientes comandos muestra comandos en la consola:
+- git log —prety=format
 
 log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 
 CLASE GIT HUB 2
 
-cd Desktop , luego ls , cd platzigit-master, ls vemos los archivos .
+Aplicamos los siguientes comandos ya explicados
 
-git config —global alias.superlog
+- cd Desktop , luego ls , cd platzigit-master, ls vemos los archivos.
+
 git status
 git add -A , agregar todos los archivos
 git commit -m “0” agrega todos los archivos
 
 git log para ver los commit
 git super log
-git checkout -b experimental - “ para crear ramas y entrar en ellas “
+**git checkout -b experimental**
+comando para crear ramas y entrar en ellas
 
-PARA AGREGAR COMMIT
+## PARA AGREGAR COMMIT RESUMEN
+
 Iteración básica es para agregar archivos
+
 archivo 1.txt
 git add -A
 git commit -m “1”
@@ -193,41 +221,55 @@ archivo 3.txt
 git add -A
 git commit -m “3”
 
-RAMAS
-para crear una rama
-1-.git checkout -b “experimental”
+## RAMAS -----
 
-git branch “nombre de la rama”
+para crear una rama
+
+**git branch “nombre de la rama”**
+
+crear ramas y moverse en ellas
+
+**git checkout -b “experimental”**
 
 git log para ver las commit ramas y features del master
 
-HEAD ES LA ubicación donde uno esta programando.
+HEAD ES LA ubicación donde uno esta en el historial de git.
 
-Git merge
+**git merge**
 
 Para fusionar ramas
-git merge experimental
 
-Va a fusionar la rama experimental pero quiero que le coloques un nombre
-PULSAR LA TECLA O , UNA VEZ COLOCAS EL NOMBRE ESC :X QUE ES CERRAR Y GUARDAR
+**git merge experimental**
+
+Va a fusionar la rama experimental pero quiero que le coloques un nombre.
+
+PULSAR LA TECLA O, UNA VEZ COLOCAS EL NOMBRE ESC :X QUE ES CERRAR Y GUARDAR
 
 PARA VER COMMIT
 
 Luego
-git superlog
+
 git log
-para restificación de commit de estar seguro y que sea el ultimo
-Git commit -am “descripción cambiada” —amend
+
+para rectificación de commit de estar seguro y que sea el ultimo
+
+si quieres renombrar un commit, puedes usar el siguiente comando
+
+**git commit -am “descripción cambiada”**
 
 “Como borrar las ramas”
 
-git branch -d experimental
+**git branch -d experimental**
 
-> Merge crea un nuevo commit con los cambios de las ramas que estás fusionando.
+> git merge -> crea un nuevo commit con los cambios de las ramas que estás fusionando.
 
-> Rebase se "trae" los cambios de la otra rama (Master) y los fusiona con los suyos.
+> git rebase -> se "trae" los cambios de la otra rama (Master) y los fusiona con los suyos.
 
 git branch “para ver las ramas”
+
+## git rebase
+
+El comando de fusión mediante cambio de base también se ha explicado en las páginas Configuración de un repositorio y Reescritura del historial.
 
 FUSIÓN
 
