@@ -379,10 +379,14 @@ git fetch upstream. “Ramas escondidas“
 git merge origin/upstream
 git push origin master
 
-(miguelnieva)[http://git.miguelnieva.com/#/273]
+[miguelnieva](http://git.miguelnieva.com/#/273)
 
 TESTING
 Travis-ci.org
-(Travis-ci.org)[https://trello.com/b/EceUgtCL/ghost-roadmap]
+[Travis-ci.org](https://trello.com/b/EceUgtCL/ghost-roadmap)
 
 Issues y Milestones de Github
+
+## REPOSITORIO DE ESTUDIOS GIT 2022 UPDATE
+
+[resumen-de-estudios](https://github.com/volta2016/git2021)

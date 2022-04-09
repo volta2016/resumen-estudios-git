@@ -8,12 +8,12 @@ ls
 ![ls](/images/ls.png)
 
 en consola vamos a escribir:
-cd Desktop
+**cd Desktop**
 
 con este comando podemos ver todo lo que esta en el escritorio de nuestra
 computadora
 
-cd namefolder
+**cd namefolder**
 
 - con este comando me ubico en la carpeta del proyecto en la cual voy a trabajar
 
@@ -21,16 +21,15 @@ cd namefolder
 
 Para configurar nuestro git lo primero que tenemos que hacer, revisar si realmente tenemos instalado git en nuestra computadora
 
-git —version
-
+**git —version**
 este comando nos muestra la versión de nuestro git
 git version 2.20.1
 
-git config —global user.name “Volta”
+**git config —global user.name “Volta”**
 
 con este comando configuramos nuestro user name para conectar con github
 
-git config —global user.email “tumail@gmail.com
+**git config —global user.email “tumail@gmail.com**
 
 con este comando configuramos nuestro user email para conectar con github
 
@@ -51,299 +50,344 @@ $ git config --global user.email "TU CORREO DE GITHUB"
 $ git config --global --list
 $ git help
 
------------------------------------------------------------------
+- Siempre al empezar un proyecto primero primero inspecciono los elementos con:
+  ls
 
+- Luego: cd Desktop, me ubico en la carpeta del proyecto en la cual voy a trabajar
 
+- puedo inicializar un repositorio con **git init** para luego configurar y conectar nuestro repositorio local con github
 
-*Siempre al empezar un proyecto primero primero inspecciono los elementos :
-ls
-Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar 
-Una vez ubicado en el Desktop inspecciono la carpeta del proyecto
-cd proyecto web
+**clear**
+es un comando para ir borrando todo el historial de acciones de nuestra consola
 
-*clear es para ir borrando todo
-git add -A 
-Primer commit git commit -m  “archivos de proyecto instalados 
-Git log : me muestra Historial del proyecto con los datos del usuario 
+## Editores de código
 
-*Una vez comienzo a editar con el editor de texto puede ser “sublime o atom”
-Aplico git status para ver que cambio hay, en que archivo y puedo comentar directamente 
-git commit–m “cambios de footer” 
-puedo preparar un archivo con git add “nombre del archivo
-git commit “nombre del archivo” —amend 
+- Atom
+- Sublime text
+- Vs code
 
+## Commit
 
-1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
-2. git status ->para ver que esta en el repo y que no
-3. git add [archivos] -> stagin area, preparar lo que sera el commit 
-4. git add -A ->alista todos los archivos para el commit (agrega todos los archivos de golpe)
-5.  git commit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo  
+Una vez comienzo a editar el codigo con “sublime o atom”
+Aplico el comando
+**git status**
+para ver que cambio hay en el stage, en que archivo.
 
+**git add “nombre del archivo"**
+puedo preparar un archivo parar el stage
 
-Git y git hub 
-cd para llamar la carpeta
-Ls para ver la lista
-Git ini para comenzar 
+**git commit –m “cambios de footer”**
 
-* git help te muestra como funciona los parapeto es un parámetro
-* git help commit
+Puedo crear un commit que es un historial al cual podemos pasarle
+mensajes especifico para así ubicarnos en el tiempo.
 
-git config --list para revisar listado 
-Git help add commit 
-1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
-2. git status ->para ver que esta en el repo y que no
-3. git add [archivos] -> stagin area, preparar lo que sera el commit 
-4. git add -A ->alista todos los archivos para el commit
-5.  gitcommit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo  
+**git commit “nombre del archivo” —amend**
 
-*git status te muestra en rojo los cambios del código en el html
+puedo renombrar un último commit
 
-git status  te muestra que archivos puedes ir guardando
-git add -A alista todo los archivos 
-git log 
-git superlog
+## Resumen
 
-RAMAS 
-git commit -am “commit nuevo” rama experimental 
+1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial de nuestros cambios
+2. git status -> sirve para ver que está en el stage y que no
+3. git add [archivos] -> stagin area, va a preparar lo que será el commit 
+4. git add -A -> lista todos los archivos para el commit (agrega todos los archivos de golpe) 5. git commit –m "nombre commit" -> crea el commit y queda agregado al historial del repositorio
 
-BORRAR
-Git reset borra todo el proyecto 
-git reset —hard “mas el ID del commit de ahi hacia arriba borra todo, si borro de arriba hacia bajo vuelve a los commit anteriores, si borro de abajo hacia arriba borra todo ejemplo ultimo de ID “
-git add -A guardar 
-git commit -m “123”
-git log 
+6. git config --list puedo ver un listado
 
-git reset mix recopila todos recopilo todos los commit y el e iguala el repositorio con el standing area
-Y en ves de tener 3 commit creado recopila todo en 1 
+## log - historial de commit
 
-git reset soft hace cambio solo en repositorio pero iguala el standing con el  working siempre se trabaja con el commit base git rest commit directamente el mix hay preparar los archivos para los commit en soft están todos los archivos preparados para el comino
+**git log**
 
-git checkout viaja en ele tiempo pegas el commit ID 
+![git log](/images/gitlg.png)
 
+nos muestra el listado de commit con su respectiva fecha y autor
 
+## Comandos para borrar o retroceder en el historial
 
-reclutamiento@desis.cl
-git init crear nuestro primer repositorio 
+Antes de pasar a este tema vamos a pasar a unos conceptos de git que son claves para entender cómo trabajamos con.
 
-git  add subir uno a uno al work staging area git add - nombre del archivo
+- Directorio Git -> El directorio Git (ubicado en RUTA-DE-TU-PROYECTO/.git/) es donde Git almacena todo lo que necesita para hacer un seguimiento preciso del proyecto.
+- Directorio de trabajo (o árbol de trabajo) -> El directorio de trabajo es donde un usuario realiza cambios locales en un proyecto. El directorio de trabajo descarga los archivos del proyecto de la base de datos de objetos del directorio Git y los coloca en la máquina local del usuario.
 
-CUANDO REALIZO CAMBIOS en el html
-Git status
+Nota: Directorio también se conoce como repositorio o en forma abreviada repo. El repo en la máquina local del usuario se llama "Repo local" mientras que el repo en el servidor git se llama "Repo remoto".
 
-Giovannis-MBP:platzigit-master volta$ git status
-On branch master
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+- Zona de "staging" -> La zona de "staging" es un archivo (también llamado "index", "stage" o "cache") que almacena información sobre lo que irá en tu próximo commit. Un commit es cuando le dices a Git que guarde estos cambios staged. Git toma una instantánea de los archivos tal y como están y almacena permanentemente esa instantánea en el directorio Git.
 
-	modified:   index.html
+- Con tres secciones, hay tres estados principales, en los que puede estar un archivo en un momento dado: modificado, commited, o staged. Tú modificas un archivo cada vez que se hacen cambios en el directorio de trabajo. Luego es staged cuando lo mueves al zona de "staging". Finalmente, es committed después de un commit.
 
-no changes added to commit (use "git add" and/or "git commit -a")
-Giovannis-MBP:platzigit-master volta$ 
+**git reset**
 
+Te permite REESTABLECER tu estado actual a un estado específico. Puedes restablecer el estado de archivos específicos, así como el de todo una rama. Esto es útil si aún no has subido tu commit a GitHub o a otro repositorio remoto.
 
-Al cambio del index.html realizado o pagina x .html debemos agregar los siguientes después de darle git status
-para integración básica
- git add index.html
-git commit -m “cambios Nombre y descripción”
+**git reset —hard “mas el ID del commit"**
 
-“  git log    ” te permite ver el nombre del la carpeta del proyecto el autor la fecha de commit y más 
-Variantes de comando de git log
-git log — online   te muestra el “sin detalles el commit id con el titulo”
-git log — decorate “te muestra en que punto estas con head”
-Git log —online —graph 
-git log —stat “numero de linea que se editaron, cuales fueron los cambios a nivel de archivo”
-git log -p “muestra los cambios y cuales fueron los cambios a nivel de código”
-Git shortlog “puedes ver en que esta trabajando cada desarrollador muestra los commit”
-git log —prety=format
+Restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
+
+**git reset mix**
+
+recopilo todos los commit y el e iguala el repositorio con el standing area
+Y en ves de tener 3 commit creado recopila todo en 1
+
+**git reset soft**
+
+hace cambió solo en repositorio pero iguala el standing con el working siempre se trabaja con el commit base git rest commit directamente el mix hay preparar los archivos para los commit en soft están todos los archivos preparados para el comino
+
+git checkout viaja en ele tiempo pegas el commit ID
+
+## Unstage un archivo
+
+Si has movido un archivo la zona de "staging" con git add, pero ya no quieres que forme parte del commit, puedes usar git reset para unstage ese archivo:
+
+**git reset HEAD ARCHIVO-A-UNSTAGE**
+
+Los cambios que has hecho seguirán estando en el archivo, este comando solo remueve el archivo de tu zona de "staging".
+
+## Restablecer una rama a un commit anterior
+
+El siguiente comando restablece el HEAD de tu rama actual al COMMIT dado y actualiza el índice. Básicamente rebobina el estado de su rama, luego todos los commits que hagas en adelante se escriben sobre todo lo que vino después del punto de reinicio. Si omites el MODE, el valor predeterminado es --mixed:
+
+## git reset MODE COMMIT
+
+Las opciones para MODE son:
+
+--soft: no restablece el fichero índice o el árbol de trabajo, pero restablece HEAD para commit. Cambia todos los archivos a "Cambios a ser commited".  
+--mixed: restablece el índice, pero no el árbol de trabajo e informa de lo que no se ha actualizado.
+--hard: restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
+--merge: restablece el índice y actualiza los archivos en el árbol de trabajo que son diferentes entre el commit y HEAD, pero mantiene los que son diferentes entre el índice y el árbol de trabajo.
+--keep: restablece las entradas del índice, actualiza los archivos en el árbol de trabajo que son diferentes entre commit y HEAD. Sin un archivo que es diferente entre commit y HEAD tiene cambios locales, el reinicio se aborta.
+
+Nota importante sobre los Hard Resets
+Ten mucho cuidado usando la opción --hard con git reset, ya que restablece tu commit, zona de "staging" y tu directorio de trabajo. Si esta opción no se utiliza correctamente, se puede acabar perdiendo el código escrito.
+
+Git Revert
+Ambos comandos git revert y git reset, deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits. Esto puede hacer que trabajar en un repositorio con otros desarrolladores y mantener un historial consistente de commits sea muy difícil.
+
+En su lugar es mejor usar git revert, que deshace los cambios realizados por un commit anterior creando un commit completamente nuevo, todo esto sin alterar el historial de commits.
+
+Revert un commit o un grupo de commits
+El siguiente comando te permite revertir los cambios de un commit o varios commits anteriores y crear un nuevo commit.
+
+git revert [--[no-]edit] [-n] [-m parent-number] [-s] [-S[<keyid>]] <commit>…
+git revert --continue
+git revert --quit
+git revert --abort
+Opciones comunes:
+-e
+--edit
+
+## git log comandos
+
+- git log -> te permite ver el nombre del la carpeta del proyecto el autor la fecha de commit y más
+  Variantes de comando de git log
+  -git log online -> te muestra el “sin detalles el commit id con el titulo”
+  -git log decorate -> te muestra en qué punto estas con head
+  -git log —online —graph -> muestro los movimiento y ramas en un gráfico
+  -git log —stat -> numero de linea que se editaron, cuales fueron los cambios a nivel de archivo
+  -git log -p -> muestra los cambios y cuáles fueron los cambios a nivel de código
+- git shortlog -> puedes ver en que está trabajando cada desarrollador muestra los commit
+  los siguientes comandos muestra comandos en la consola:
+- git log —prety=format
 
 log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 
+## CLASE GIT HUB 2
 
+Aplicamos los siguientes comandos ya explicados
 
-CLASE GIT HUB 2 
+- cd Desktop , luego ls , cd platzigit-master, ls vemos los archivos.
 
-cd Desktop , luego ls , cd platzigit-master, ls vemos los archivos .
-
-git config —global  alias.superlog
 git status
-git add -A , agregar todos los archivos 
-git commit -m “0” agrega todos los archivos 
+git add -A , agregar todos los archivos
+git commit -m “0” agrega todos los archivos
 
 git log para ver los commit
 git super log
-git checkout -b experimental  - “ para crear ramas y entrar en ellas “
+**git checkout -b experimental**
+comando para crear ramas y entrar en ellas
 
-PARA AGREGAR COMMIT 
-Iteración básica es para agregar archivos 
+## PARA AGREGAR COMMIT RESUMEN
+
+Iteración básica es para agregar archivos
+
 archivo 1.txt
-git add -A 
+git add -A
 git commit -m “1”
 
 archivo 2.txt
-git add -A 
+git add -A
 git commit -m “2”
 
 archivo 3.txt
-git add -A 
+git add -A
 git commit -m “3”
 
+## RAMAS -----
 
-RAMAS 
 para crear una rama
-1-.git checkout -b “experimental”  
 
-git branch “nombre de la rama”
+**git branch “nombre de la rama”**
 
-git log para ver las commit ramas y features del master 
+crear ramas y moverse en ellas
 
-HEAD ES LA ubicación donde uno esta programando.
+**git checkout -b “experimental”**
 
-Git merge 
+git log para ver las commit ramas y features del master
+
+HEAD ES LA ubicación donde uno esta en el historial de git.
+
+**git merge**
 
 Para fusionar ramas
-git merge experimental
 
-Va a fusionar la rama experimental pero quiero que le coloques un nombre
-PULSAR LA TECLA O , UNA VEZ COLOCAS EL NOMBRE ESC :X QUE ES CERRAR Y GUARDAR 
+**git merge experimental**
 
-PARA VER COMMIT 
+Va a fusionar la rama experimental pero quiero que le coloques un nombre.
 
-Luego 
-git superlog 
+PULSAR LA TECLA O, UNA VEZ COLOCAS EL NOMBRE ESC :X QUE ES CERRAR Y GUARDAR
+
+PARA VER COMMIT
+
+Luego
+
 git log
-para restificación de commit de estar seguro y que sea el ultimo
-Git commit -am “descripción cambiada”  —amend
 
-“Como borrar las ramas” 
+para rectificación de commit de estar seguro y que sea el ultimo
 
-git branch -d experimental
+si quieres renombrar un commit, puedes usar el siguiente comando
 
-> Merge crea un nuevo commit con los cambios de las ramas que estás fusionando.
+**git commit -am “descripción cambiada”**
 
-> Rebase se "trae" los cambios de la otra rama (Master) y los fusiona con los suyos.
+“Como borrar las ramas”
+
+**git branch -d experimental**
+
+> git merge -> crea un nuevo commit con los cambios de las ramas que estás fusionando.
+
+> git rebase -> se "trae" los cambios de la otra rama (Master) y los fusiona con los suyos.
 
 git branch “para ver las ramas”
 
-FUSIÓN
+## git rebase
 
-solucionar el conflicto , con git status vemos el archivo en rojo luego esta en rojo apene hay que subirlo a 
-Luego git add -A
-Git status 
-Git commit -m “Fusión realizada”
+El comando de fusión mediante cambio de base también se ha explicado en las páginas Configuración de un repositorio y Reescritura del historial.
 
+## ¿Qué es git rebase?
 
-REINICIAR PROYECT 
+La reorganización es el proceso de mover o combinar una secuencia de confirmaciones en una nueva confirmación base. La reorganización es muy útil y se visualiza fácilmente en el contexto de un flujo de trabajo de ramas de funciones. El proceso general se puede visualizar de la siguiente manera:
+
+![rbase](/images/rebase.png)
+
+Desde una perspectiva del contenido, la reorganización consiste en cambiar la base de tu rama de una confirmación a otra haciendo que parezca que has creado la rama desde una confirmación diferente. Internamente, Git lo hace creando nuevas confirmaciones y aplicándolas a la base especificada. Es muy importante entender que, aunque la rama parece la misma, se compone de nuevas confirmaciones por completo.
+
+## Uso
+
+El motivo principal por el que llevar a cabo una fusión mediante cambio de base es para mantener un historial del proyecto lineal. Por ejemplo, piensa en una situación en la que la rama principal haya progresado desde que empezaste a trabajar en una rama de función. Quieres incorporar las últimas actualizaciones de la rama principal a tu rama de función, pero quieres mantener el historial de la rama limpio para que parezca que has estado trabajando a partir de la rama principal más reciente. Esto proporciona el beneficio posterior de una fusión limpia de la rama de función de nuevo a la rama principal. ¿Por qué queremos mantener un "historial limpio"? Los beneficios de tener un historial limpio se vuelven evidentes cuando se realizan operaciones de Git para investigar la introducción de una regresión. Una situación más realista sería la siguiente:
+
+- Se identifica un error en la rama principal. Una función que funcionaba perfectamente ahora falla.
+
+- Un desarrollador examina el historial de la rama principal usando git log. Dado que el historial está "limpio", el desarrollador puede deducir rápidamente qué ha ocurrido en el historial del proyecto.
+
+- El desarrollador no puede identificar mediante git log cuándo se introdujo el error, por lo que ejecuta un comando git bisect.
+  Dado que el historial de Git está limpio, git bisect tiene un conjunto perfeccionado de confirmaciones para comparar cuando se busca la regresión. El desarrollador encuentra rápidamente la confirmación que introdujo el error y puede actuar en consecuencia.
+
+- Encontrarás más información sobre git log y git bisect en sus respectivas páginas individuales, en las que se explica como usarlos.
+
+REINICIAR PROJECT
 
 Entrar a las carpetas ocultas ls -la
-La git guarda el proyecto en una carpeta y el registro lo tiene una carpeta llamada .git
-Con el siguiente comando puedes eliminarla: rm - rf
-ls -la para ver todo el repositorio 
+git guarda el proyecto en una carpeta y el registro lo tiene una carpeta llamada
+.git Con el siguiente comando puedes eliminarla:
+rm - rf
+ls -la para ver todo el repositorio
 
-git checkout master es para volver atrás de un cambio en alguna rama
-
-git merge “para la fusión” decidir con que titulo queda o modificación 
+**git merge**
+“para la fusión” decidir con qué título queda o modificación
 Despues comentas interacción básica fusión ejecutada
 
-
-se puede hacer un reset --hard 
+se puede hacer un **reset --hard**
 al inicio del proyecto o commit inicial sin tener el id del commit de esta forma: 
 git fetch origin
 git reset --hard origin/master
 
-REBASE
+\*\* REBASE
 
-En las fusiones se crea un solo commit 
-En rebase pasa esto : a-b se colocan antes del commit de master 
-Por ejemplo si vuelvo mi ejemplo a git checkout master vuelven deprecar los commit de la rama del rebase a - b vuelves atrás “por que master esta en el commit con nombre cuarto” como subirlo:
+En las fusiones se crea un solo commit
+En rebase pasa esto : a - b se colocan antes del commit de master
+Por ejemplo si vuelvo mi ejemplo a git checkout master vuelven deprecar los commit de la rama del rebase a - b.
+Vuelves atrás “porque master esta en el commit con nombre "cuarto" como subirlo:
 git merge rama rebase
 
-Ramarebase va acompañado de merge se va atacando de varias formas , cuando trabajas con rebase tienen que hacer “merge” git merge rama rebase
-Crear ramas git checkout  -b “nombre de la rama”
+Rama rebase va acompañado de merge se va atacando de varias formas , cuando trabajas con rebase tienen que hacer “merge”
+**git merge rama rebase**
 
-RAMA POR DEFECTO master 
-
+LA RAMA POR DEFECTO en git es master
 
 Css https://www.nigbox.com/cursos/css-basico-desde-cero/#/
 
-PARA CLONAR cd ubico Desktop 
-git clone y el link en HTTPS. https://github.com/github/gemoji.git
+PARA CLONAR cd ubico Desktop
+git clone y el link en HTTPS.
 
+git clone https://github.com/github/gemoji.git
 
-LLAVE SSH  RSA COMO ALGORITMO 
+LLAVE SSH RSA COMO ALGORITMO
 
 $ ssh-keygen -t rsa -b 4096 -C "[email de GitHub]"
 
-				Dar enter. Aceptar la localización por defecto.
+    			Dar enter. Aceptar la localización por defecto.
 
-				Contraseña.
+    			Contraseña.
 
-				$ cd  ~/.ssh
+    			$ cd  ~/.ssh
 
-				$ cat id_rsa.pub
+    			$ cat id_rsa.pub
 
-				Copiamos la llave y la pegamos en Settings > SSH, dentro de GitHub.
-			
+    			Copiamos la llave y la pegamos en Settings > SSH, dentro de GitHub.
+
 Resumen
 
 ssh-keygen -t rsa -b 4096 -C "poner aquí correo electrónico"
 
- 
 cat id_rsa.pub
 
 Pegas el código y vuelvo al escritorio
 
+## WORK GITHUB
 
-
-WORK GITHUB
-Creo la carpeta  mkdri nombre carpeta
-Entro a la carpeta con cd 
-git init 
+Creo la carpeta mkdri nombre carpeta
+Entro a la carpeta con cd
+git init
 Agrego el primer archivo: touch 1.txt
-git remote add origin “nombre del repositorio remoto
+git remote add origin “nombre del repositorio remoto"
+git add -A
+git commit "name commit"
 
-git push origin master 
-Para retomar proyecto 
-****desarrollamos***
-git fetch  origin  “refresh actualization del remoto”
-git merge origin/master 
-git push origin master 
-
-Cued realizas fetch no cae en la rama master “ la local “ si no cae en origin master rama escondida
-Luego de placa una fusión : git merge origin/master
+git push origin master
 
 PROCESO DE REPOSITORIOS “FORKED”
-Pasos en orden 
+Pasos en orden
 
 Crear ó entrar a la carpeta del proyecto cd
-git init 
-	
-        git remote add origin [HTTPS ó SSH del proyecto forked]
-	git remote add upstream [HTTPS ó SSH del proyecto principal]
-	git fetch upstream
-	git merge origin/upstream   “como conectamos la rama del repositorio original”
-	git fetch origin
-	git merge origin/master
-	Hacer cambios en local
-	git fetch upstream.            “Ramas escondidas “
-	git merge origin/upstream
-	git push origin master
+git init
+git remote add origin [HTTPS ó SSH del proyecto forked]
+git remote add upstream [HTTPS ó SSH del proyecto principal]
+git fetch upstream
+git merge origin/upstream “como conectamos la rama del repositorio original”
+git fetch origin
+git merge origin/master
+Hacer cambios en local
+git fetch upstream. “Ramas escondidas“
+git merge origin/upstream
+git push origin master
 
-
-http://git.miguelnieva.com/#/273
-
+(miguelnieva)[http://git.miguelnieva.com/#/273]
 
 TESTING
-Travis-ci.org 
-https://trello.com/b/EceUgtCL/ghost-roadmap
-
+Travis-ci.org
+(Travis-ci.org)[https://trello.com/b/EceUgtCL/ghost-roadmap]
 
 Issues y Milestones de Github
 
 
+## REPOSITORIO DE ESTUDIOS GIT 2022 UPDATE
 
-
-
-
-
-
+[resumen-de-estudios](https://github.com/volta2016/git2021)
