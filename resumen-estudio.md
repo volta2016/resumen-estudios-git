@@ -50,22 +50,40 @@ $ git config --global user.email "TU CORREO DE GITHUB"
 $ git config --global --list
 $ git help
 
-\*Siempre al empezar un proyecto primero primero inspecciono los elementos :
-ls
-Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar
-Una vez ubicado en el Desktop inspecciono la carpeta del proyecto
-cd proyecto web
+- Siempre al empezar un proyecto primero primero inspecciono los elementos con:
+  ls
 
-\*clear es para ir borrando todo
-git add -A
-Primer commit git commit -m “archivos de proyecto instalados
-Git log : me muestra Historial del proyecto con los datos del usuario
+- Luego: cd Desktop, me ubico en la carpeta del proyecto en la cual voy a trabajar
 
-\*Una vez comienzo a editar con el editor de texto puede ser “sublime o atom”
-Aplico git status para ver que cambio hay, en que archivo y puedo comentar directamente
-git commit–m “cambios de footer” 
-puedo preparar un archivo con git add “nombre del archivo
-git commit “nombre del archivo” —amend
+- puedo inicializar un repositorio con **git init** para luego configurar y conectar nuestro repositorio local con github
+
+**clear**
+es un comando para ir borrando todo el historial de acciones de nuestra consola
+
+## Editores de código
+
+- Atom
+- Sublime text
+- Vs code
+
+## Commit
+
+Una vez comienzo a editar el codigo con “sublime o atom”
+Aplico el comando
+**git status**
+para ver que cambio hay en el stage, en que archivo.
+
+**git add “nombre del archivo"**
+puedo preparar un archivo parar el stage
+
+**git commit –m “cambios de footer”**
+
+Puedo crear un commit que es un historial al cual podemos pasarle
+mensajes especifico para así ubicarnos en el tiempo.
+
+**git commit “nombre del archivo” —amend**
+
+puedo renombrar un último commit
 
 1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
 2. git status ->para ver que esta en el repo y que no
