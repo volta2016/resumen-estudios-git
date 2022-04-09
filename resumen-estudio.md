@@ -190,7 +190,7 @@ Opciones comunes:
 
 log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 
-CLASE GIT HUB 2
+## CLASE GIT HUB 2
 
 Aplicamos los siguientes comandos ya explicados
 
@@ -271,46 +271,63 @@ git branch “para ver las ramas”
 
 El comando de fusión mediante cambio de base también se ha explicado en las páginas Configuración de un repositorio y Reescritura del historial.
 
-FUSIÓN
+## ¿Qué es git rebase?
 
-solucionar el conflicto , con git status vemos el archivo en rojo luego esta en rojo apene hay que subirlo a
-Luego git add -A
-Git status
-Git commit -m “Fusión realizada”
+La reorganización es el proceso de mover o combinar una secuencia de confirmaciones en una nueva confirmación base. La reorganización es muy útil y se visualiza fácilmente en el contexto de un flujo de trabajo de ramas de funciones. El proceso general se puede visualizar de la siguiente manera:
 
-REINICIAR PROYECT
+![rbase](/images/rebase.png)
+
+Desde una perspectiva del contenido, la reorganización consiste en cambiar la base de tu rama de una confirmación a otra haciendo que parezca que has creado la rama desde una confirmación diferente. Internamente, Git lo hace creando nuevas confirmaciones y aplicándolas a la base especificada. Es muy importante entender que, aunque la rama parece la misma, se compone de nuevas confirmaciones por completo.
+
+## Uso
+
+El motivo principal por el que llevar a cabo una fusión mediante cambio de base es para mantener un historial del proyecto lineal. Por ejemplo, piensa en una situación en la que la rama principal haya progresado desde que empezaste a trabajar en una rama de función. Quieres incorporar las últimas actualizaciones de la rama principal a tu rama de función, pero quieres mantener el historial de la rama limpio para que parezca que has estado trabajando a partir de la rama principal más reciente. Esto proporciona el beneficio posterior de una fusión limpia de la rama de función de nuevo a la rama principal. ¿Por qué queremos mantener un "historial limpio"? Los beneficios de tener un historial limpio se vuelven evidentes cuando se realizan operaciones de Git para investigar la introducción de una regresión. Una situación más realista sería la siguiente:
+
+- Se identifica un error en la rama principal. Una función que funcionaba perfectamente ahora falla.
+
+- Un desarrollador examina el historial de la rama principal usando git log. Dado que el historial está "limpio", el desarrollador puede deducir rápidamente qué ha ocurrido en el historial del proyecto.
+
+- El desarrollador no puede identificar mediante git log cuándo se introdujo el error, por lo que ejecuta un comando git bisect.
+  Dado que el historial de Git está limpio, git bisect tiene un conjunto perfeccionado de confirmaciones para comparar cuando se busca la regresión. El desarrollador encuentra rápidamente la confirmación que introdujo el error y puede actuar en consecuencia.
+
+- Encontrarás más información sobre git log y git bisect en sus respectivas páginas individuales, en las que se explica como usarlos.
+
+REINICIAR PROJECT
 
 Entrar a las carpetas ocultas ls -la
-La git guarda el proyecto en una carpeta y el registro lo tiene una carpeta llamada .git
-Con el siguiente comando puedes eliminarla: rm - rf
+git guarda el proyecto en una carpeta y el registro lo tiene una carpeta llamada
+.git Con el siguiente comando puedes eliminarla:
+rm - rf
 ls -la para ver todo el repositorio
 
-git checkout master es para volver atrás de un cambio en alguna rama
-
-git merge “para la fusión” decidir con que titulo queda o modificación
+**git merge**
+“para la fusión” decidir con qué título queda o modificación
 Despues comentas interacción básica fusión ejecutada
 
-se puede hacer un reset --hard
+se puede hacer un **reset --hard**
 al inicio del proyecto o commit inicial sin tener el id del commit de esta forma: 
 git fetch origin
 git reset --hard origin/master
 
-REBASE
+\*\* REBASE
 
 En las fusiones se crea un solo commit
-En rebase pasa esto : a-b se colocan antes del commit de master
-Por ejemplo si vuelvo mi ejemplo a git checkout master vuelven deprecar los commit de la rama del rebase a - b vuelves atrás “por que master esta en el commit con nombre cuarto” como subirlo:
+En rebase pasa esto : a - b se colocan antes del commit de master
+Por ejemplo si vuelvo mi ejemplo a git checkout master vuelven deprecar los commit de la rama del rebase a - b.
+Vuelves atrás “porque master esta en el commit con nombre "cuarto" como subirlo:
 git merge rama rebase
 
-Ramarebase va acompañado de merge se va atacando de varias formas , cuando trabajas con rebase tienen que hacer “merge” git merge rama rebase
-Crear ramas git checkout -b “nombre de la rama”
+Rama rebase va acompañado de merge se va atacando de varias formas , cuando trabajas con rebase tienen que hacer “merge”
+**git merge rama rebase**
 
-RAMA POR DEFECTO master
+LA RAMA POR DEFECTO en git es master
 
 Css https://www.nigbox.com/cursos/css-basico-desde-cero/#/
 
 PARA CLONAR cd ubico Desktop
-git clone y el link en HTTPS. https://github.com/github/gemoji.git
+git clone y el link en HTTPS.
+
+git clone https://github.com/github/gemoji.git
 
 LLAVE SSH RSA COMO ALGORITMO
 
@@ -334,21 +351,17 @@ cat id_rsa.pub
 
 Pegas el código y vuelvo al escritorio
 
-WORK GITHUB
+## WORK GITHUB
+
 Creo la carpeta mkdri nombre carpeta
 Entro a la carpeta con cd
 git init
 Agrego el primer archivo: touch 1.txt
-git remote add origin “nombre del repositorio remoto
+git remote add origin “nombre del repositorio remoto"
+git add -A
+git commit "name commit"
 
 git push origin master
-Para retomar proyecto \***_desarrollamos_**
-git fetch origin “refresh actualization del remoto”
-git merge origin/master
-git push origin master
-
-Cued realizas fetch no cae en la rama master “ la local “ si no cae en origin master rama escondida
-Luego de placa una fusión : git merge origin/master
 
 PROCESO DE REPOSITORIOS “FORKED”
 Pasos en orden
@@ -362,14 +375,14 @@ git merge origin/upstream “como conectamos la rama del repositorio original”
 git fetch origin
 git merge origin/master
 Hacer cambios en local
-git fetch upstream. “Ramas escondidas “
+git fetch upstream. “Ramas escondidas“
 git merge origin/upstream
 git push origin master
 
-http://git.miguelnieva.com/#/273
+(miguelnieva)[http://git.miguelnieva.com/#/273]
 
 TESTING
 Travis-ci.org
-https://trello.com/b/EceUgtCL/ghost-roadmap
+(Travis-ci.org)[https://trello.com/b/EceUgtCL/ghost-roadmap]
 
 Issues y Milestones de Github
