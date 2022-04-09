@@ -85,42 +85,43 @@ mensajes especifico para así ubicarnos en el tiempo.
 
 puedo renombrar un último commit
 
-1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
-2. git status ->para ver que esta en el repo y que no
-3. git add [archivos] -> stagin area, preparar lo que sera el commit 
-4. git add -A ->alista todos los archivos para el commit (agrega todos los archivos de golpe) 5.  git commit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo
+## Resumen
 
-Git y git hub
-cd para llamar la carpeta
-Ls para ver la lista
-Git ini para comenzar
+1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial de nuestros cambios
+2. git status -> sirve para ver que esta en el stage y que no
+3. git add [archivos] -> stagin area, va a prepara lo que sera el commit 
+4. git add -A -> alista todos los archivos para el commit (agrega todos los archivos de golpe) 5. git commit –m "nombre commit" -> crea el commit y queda agregado al historial del repositorio
 
-- git help te muestra como funciona los parapeto es un parámetro
-- git help commit
+6. git config --list puedo ver un listado
 
-git config --list para revisar listado
-Git help add commit
-1. git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
-2. git status ->para ver que esta en el repo y que no
-3. git add [archivos] -> stagin area, preparar lo que sera el commit 
-4. git add -A ->alista todos los archivos para el commit 5.  gitcommit–m "que es estecommit" -> crea el commit y queda agregado al historial del repo
+## log - historial de commit
 
-\*git status te muestra en rojo los cambios del código en el html
+**git log**
 
-git status te muestra que archivos puedes ir guardando
-git add -A alista todo los archivos
-git log
-git superlog
+![git log](/images/gitlg.png)
 
-RAMAS
-git commit -am “commit nuevo” rama experimental
+nos muestra el listado de commit con su respectiva fecha y autor
 
-BORRAR
-Git reset borra todo el proyecto
-git reset —hard “mas el ID del commit de ahi hacia arriba borra todo, si borro de arriba hacia bajo vuelve a los commit anteriores, si borro de abajo hacia arriba borra todo ejemplo ultimo de ID “
-git add -A guardar
-git commit -m “123”
-git log
+## Comados para borrar o retroceder en el histotial
+
+Antes de pasar a este tema vamos a pasar a unos conceptos de git que son claves para enteder como trabajamos con.
+
+- Directorio Git -> El directorio Git (ubicado en RUTA-DE-TU-PROYECTO/.git/) es donde Git almacena todo lo que necesita para hacer un seguimiento preciso del proyecto.
+- Directorio de trabajo (o árbol de trabajo) -> El directorio de trabajo es donde un usuario realiza cambios locales en un proyecto. El directorio de trabajo descarga los archivos del proyecto de la base de datos de objetos del directorio Git y los coloca en la máquina local del usuario.
+
+Nota: Directorio también se conoce como repositorio o en forma abreviada repo. El repo en la máquina local del usuario se llama "Repo local" mientras que el repo en el servidor git se llama "Repo remoto".
+
+- Zona de "staging" -> La zona de "staging" es un archivo (también llamado "index", "stage" o "cache") que almacena información sobre lo que irá en tu próximo commit. Un commit es cuando le dices a Git que guarde estos cambios staged. Git toma una instantánea de los archivos tal y como están y almacena permanentemente esa instantánea en el directorio Git.
+
+- Con tres secciones, hay tres estados principales, en los que puede estar un archivo en un momento dado: modificado, commited, o staged. Tú modificas un archivo cada vez que se hacen cambios en él directorio de trabajo. Luego es staged cuando lo mueves al zona de "staging". Finalmente, es committed después de un commit.
+
+**git reset**
+
+te permite RESTABLECER tu estado actual a un estado específico. Esto es útil si aún no has subido tu commit a GitHub o a otro repositorio remoto.
+
+**git reset —hard “mas el ID del commit"**
+
+restablece el índice y el árbol de trabajo. Cualquier cambio en los archivos rastreados en el árbol de trabajo desde el commit son descartados.
 
 git reset mix recopila todos recopilo todos los commit y el e iguala el repositorio con el standing area
 Y en ves de tener 3 commit creado recopila todo en 1
