@@ -1,21 +1,54 @@
-CONFIGURACIÓN CUANDO COMIENZO UN PROYECTO CON GIT
+# CONFIGURACIÓN CUANDO COMIENZO UN PROYECTO CON GIT
 
-- Siempre al empezar un proyecto primero inspecciono los elementos
+- Siempre al empezar un proyecto primero inspeccionó los elementos
   con el comando:
 
 ls
 
-Luego cd Desktop - y me ubico en la carpeta del proyecto en la cual voy a trabajar
+![ls](/images/ls.png)
 
-git —version
-git config —global user.name “Volta”
-Git config —global user.email “giovoltadesign@gmail.com
+en consola vamos a escribir:
+**cd Desktop**
+
+con este comando podemos ver todo lo que esta en el escritorio de nuestra
+computadora
+
+**cd namefolder**
+
+- con este comando me ubico en la carpeta del proyecto en la cual voy a trabajar
+
+## configurar git
+
+Para configurar nuestro git lo primero que tenemos que hacer, revisar si realmente tenemos instalado git en nuestra computadora
+
+**git —version**
+este comando nos muestra la versión de nuestro git
+git version 2.20.1
+
+**git config —global user.name “Volta”**
+
+con este comando configuramos nuestro user name para conectar con github
+
+**git config —global user.email “tumail@gmail.com**
+
+con este comando configuramos nuestro user email para conectar con github
+
+**git config --global --list**
+
+con este comando puedes el nombre y email que está configurado con tu
+github
+
+**git help**
+
+comando para ver el listado de comando de git, estos se muestran con una breve descripción la cual detalla para qué sirve cada comando
+
+## Resumen de comando
 
 $ git --version
 $ git config --global user.name "TU NOMBRE"
 $ git config --global user.email "TU CORREO DE GITHUB"
 $ git config --global --list
-$ git help [comando a buscar]
+$ git help
 
 \*Siempre al empezar un proyecto primero primero inspecciono los elementos :
 ls
@@ -231,7 +264,6 @@ $ ssh-keygen -t rsa -b 4096 -C "[email de GitHub]"
     			$ cat id_rsa.pub
 
     			Copiamos la llave y la pegamos en Settings > SSH, dentro de GitHub.
-
 
 Resumen
 
