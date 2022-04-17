@@ -1,4 +1,4 @@
-# resumen_estudios git comandos claves
+# resumen_estudios git comandos esenciales
 
 ## Repositorio resumen estudios 2021 - 2022
 
